@@ -5,6 +5,7 @@
 #include "chunk.h"
 #include "value.h"
 #include "debug.h"
+#include "compiler.h"
 #include <stdio.h>
 
 #define STACK_MAX 256
@@ -37,10 +38,9 @@ Value pop();
 // VM operations:
 void initVM();
 void freeVM();
+// Interpret the tokens and turn them into bytecode
+InterpretResult interpret(const char *source);
 
-// Interpret (run) the opcode
-InterpretResult interpret(Chunk *chunk);
-
-// Most important function, runs the current chunk that's been passed to interpret()
+// Most important function, runs the bytecode and execute it
 static InterpretResult run();
 #endif

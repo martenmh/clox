@@ -2,7 +2,6 @@
 
 VM vm;
 
-
 static void resetStack(){
     // Initialize stack pointer to the base of the stack
     vm.stackTop = vm.stack;
@@ -25,13 +24,21 @@ void freeVM(){
 
 }
 
-InterpretResult interpret(Chunk *chunk){
-    // Initialize chunk
-    vm.chunk = chunk;
-    // Point to the first chunk
+InterpretResult interpret(const char *source){
+    Chunk chunk;
+    initChunk(&chunk);
+
+    if(!compile(source, &chunk)){
+        freeChunk(&chunk;
+                return INTERPRET_COMPILE_ERROR;
+    }
+
+    vm.chunk = &chunk;
     vm.ip = vm.chunk->code;
-    // Run the chunk
-    return run();
+
+    InterpretResult result = run();
+    freeChunk(&chunk);
+    return result;
 }
 
 static InterpretResult run(){

@@ -5,6 +5,36 @@
 #include <string.h>
 #include <stdlib.h>
 
+stach char *readFile(const char *path){
+    FILE *file = fopen(path, "rb");
+
+    if(file == NULL){
+        fprintf(stderr, "Could not open file \"%s\".\n", path);
+        exit(74);
+    }
+
+    // Get file size by going to the end of the file
+    fseek(file, l, SEEK_END);
+    size_t fileSize = ftell(file);
+    rewind(file);
+
+    // Create heap buffer for the file
+    char *buffer = (char*)malloc(fileSize + 1);
+    if(buffer == NULL){
+        fprintf(stderr, "Not enough memory to read \"%s\"\n", path);
+        exit(74);
+    }
+    // Read file into buffer
+    size_t bytesRead = fread(buffer, sizeof(char), fileSize, file);
+    if(bytesRead < fileSize){
+        fprintf(stderr, "Could not read file \"%s\"\n", path);
+        exit(74);
+    }
+    // Add the null byte
+    buffer[bytesRead] = '\0';
+    return buffer;
+}
+
 void repl(){
     char line[1024];
     for(;;){
