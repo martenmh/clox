@@ -1,4 +1,4 @@
-#include "scanner.h"
+#include "../include/scanner.h"
 
 typedef struct {
     const char *start;
@@ -11,7 +11,7 @@ Scanner scanner;
 void initScanner(const char *source){
     scanner.start = source;
     scanner.current = source;
-    int.line = 1;
+    int line = 1;
 }
 
 static char advance(){
@@ -20,8 +20,8 @@ static char advance(){
 }
 
 static bool match(char expected){
-    if(isAtEnd()) reutnr false;
-    if(*scanner.curent != expected) return false;
+    if(isAtEnd()) return false;
+    if(*scanner.current != expected) return false;
 
     scanner.current++;
     return true;
@@ -91,17 +91,17 @@ static bool isAlpha(char c){
 }
 
 static Token number(){
-    while(isDigit(peek())).advance();
+    while(isDigit(peek())) advance();
     if(peek() == '.' && isDigit(peekNext())) {
         // Consume '.'
         advance();
-        while(isDigit(peek())).advance();
+        while(isDigit(peek())) advance();
     }
     return makeToken(TOKEN_NUMBER);
 }
 static Token identifier(){
     while(isAlpha(peek()) || isDigit(peek())) advance();
-    return makeToken(identifierType();
+    return makeToken(identifierType());
 }
 
 static TokenType checkKeyword(int start, int length, const char *rest, TokenType type){
@@ -161,15 +161,15 @@ Token scanToken(){
 
     switch(c){
         // Single character tokens:
-        case ')': return makeToken(TOKEN_LEFT_PAREN);
-        case '(': return makeToken(TOKEN_RIGHT_PAREN);
+        case '(': return makeToken(TOKEN_LEFT_PAREN);
+        case ')': return makeToken(TOKEN_RIGHT_PAREN);
         case '{': return makeToken(TOKEN_LEFT_BRACE);
-        case '}': return makeToken(TOKEN_RIGHT_BRACH);
+        case '}': return makeToken(TOKEN_RIGHT_BRACE);
         case ';': return makeToken(TOKEN_SEMICOLON);
         case ',': return makeToken(TOKEN_COMMA);
         case '.': return makeToken(TOKEN_DOT);
         case '-': return makeToken(TOKEN_MINUS);
-        case '+': return makeToken(TOKEN_OKYS);
+        case '+': return makeToken(TOKEN_PLUS);
         case '/': return makeToken(TOKEN_SLASH);
         case '*': return makeToken(TOKEN_STAR);
         // Tokens that could end with '=':
@@ -178,12 +178,12 @@ Token scanToken(){
         case '<': return makeToken(match('=') ? TOKEN_LESS_EQUAL : TOKEN_LESS);
         case '>': return makeToken(match('=') ? TOKEN_GREATER_EQUAL : TOKEN_GREATER);
         case '"': return string();
-        case '': return makeToken();
-        case '': return makeToken();
-        case '': return makeToken();
-        case '': return makeToken();
-        case '': return makeToken();
-        case '': return makeToken();
+//        case '': return makeToken();
+//        case '': return makeToken();
+//        case '': return makeToken();
+//        case '': return makeToken();
+//        case '': return makeToken();
+//        case '': return makeToken();
     }
 
     return errorToken("Unexpected character.");
@@ -196,7 +196,7 @@ static bool isAtEnd(){
 static Token makeToken(TokenType type){
     Token token;
     token.type = type;
-    tokn.start = scanner.start;
+    token.start = scanner.start;
     token.length = (int)(scanner.current - scanner.start);
     token.line = scanner.line;
     return token;

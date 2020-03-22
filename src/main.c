@@ -1,11 +1,11 @@
-#include "chunk.h"
-#include "debug.h"
-#include "vm.h"
+#include "../include/chunk.h"
+#include "../include/debug.h"
+#include "../include/vm.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-stach char *readFile(const char *path){
+static char *readFile(const char *path){
     FILE *file = fopen(path, "rb");
 
     if(file == NULL){
@@ -14,7 +14,7 @@ stach char *readFile(const char *path){
     }
 
     // Get file size by going to the end of the file
-    fseek(file, l, SEEK_END);
+    fseek(file, 0L, SEEK_END);
     size_t fileSize = ftell(file);
     rewind(file);
 
@@ -38,7 +38,7 @@ stach char *readFile(const char *path){
 void repl(){
     char line[1024];
     for(;;){
-        if(!fgets(linem sizeof(line), stdin)){
+        if(!fgets(line, sizeof(line), stdin)){
             printf("\n");
             break;
         }
@@ -68,32 +68,32 @@ int main(int argc, char *argv[]){
     }
 
 
-    Chunk chunk;
-    initChunk(&chunk);
+  // Chunk chunk;
+  // initChunk(&chunk);
 
-    int constant = addConstant(&chunk, 1.2);
-    writeChunk(&chunk, OP_CONSTANT, 123);
-    writeChunk(&chunk, constant, 123);
+  // int constant = addConstant(&chunk, 1.2);
+  // writeChunk(&chunk, OP_CONSTANT, 123);
+  // writeChunk(&chunk, constant, 123);
 
-    writeChunk(&chunk, OP_CONSTANT, 123);   
-    writeChunk(&chunk, constant, 123);
+  // writeChunk(&chunk, OP_CONSTANT, 123);
+  // writeChunk(&chunk, constant, 123);
 
-    writeChunk(&chunk, OP_ADD, 123);        
+  // writeChunk(&chunk, OP_ADD, 123);
 
-    constant = addConstant(&chunk, 5.6);    
-    writeChunk(&chunk, OP_CONSTANT, 123);   
-    writeChunk(&chunk, constant, 123);      
+  // constant = addConstant(&chunk, 5.6);
+  // writeChunk(&chunk, OP_CONSTANT, 123);
+  // writeChunk(&chunk, constant, 123);
 
-    writeChunk(&chunk, OP_DIVIDE, 123); 
+  // writeChunk(&chunk, OP_DIVIDE, 123);
 
-    writeChunk(&chunk, OP_NEGATE, 123);
+  // writeChunk(&chunk, OP_NEGATE, 123);
 
-    writeChunk(&chunk, OP_RETURN, 123);
-    disassembleChunk(&chunk, "test chunk");
+  // writeChunk(&chunk, OP_RETURN, 123);
+  // disassembleChunk(&chunk, "test chunk");
 
-    interpret(&chunk);
+  //  interpret(&chunk);
     freeVM();
-    freeChunk(&chunk);
+   // freeChunk(&chunk);
 
     /*
     if(argc > 2){
