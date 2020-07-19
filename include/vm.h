@@ -5,7 +5,9 @@
 #include "chunk.h"
 #include "value.h"
 #include "debug.h"
+#include "table.h"
 #include "compiler.h"
+
 #include <stdio.h>
 
 #define STACK_MAX 256
@@ -21,6 +23,10 @@ typedef struct {
     Value stack[STACK_MAX];
     // SP (stack pointer)
     Value *stackTop;
+    Table globals; // Global variables
+    Table strings; // Hash Table string
+  // All allocated objects (linked list)
+    struct sObj *objects;
 } VM;
 
 // Results
@@ -30,6 +36,7 @@ typedef enum {
     INTERPRET_RUNTIME_ERROR
 } InterpretResult;
 
+extern VM vm;
 // Stack operations
 static void resetStack();
 void push(Value value);

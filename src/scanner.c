@@ -1,4 +1,5 @@
 #include "../include/scanner.h"
+#include "string.h"
 
 typedef struct {
     const char *start;

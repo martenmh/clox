@@ -1,0 +1,3 @@
+/home/marten/projects/clox/CMakeFiles/rebuild_cache.dir
+/home/marten/projects/clox/CMakeFiles/edit_cache.dir
+/home/marten/projects/clox/CMakeFiles/lox.dir

@@ -1,8 +1,11 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 
-#include "common.h"
 #include <stdlib.h>
+#include "common.h"
+
+#define ALLOCATE(type,count) \
+    (type*)reallocate(NULL, 0, sizeof(type) * (count))
 
 // Grow the capacity of the Chunk array by 2
 #define GROW_CAPACITY(capacity) \
@@ -17,8 +20,10 @@
 #define FREE_ARRAY(type, pointer, oldCount) \
     reallocate(pointer, sizeof(type) * (oldCount), 0)
 
+#define FREE(type, pointer) \
+    reallocate(pointer, sizeof(type), 0)
+
 // Reallocate the memory size
 void *reallocate(void* previous, size_t oldSize, size_t newSize);
-
-
+void freeObjects();
 #endif

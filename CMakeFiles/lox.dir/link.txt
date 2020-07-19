@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/lox.dir/src/memory.c.o CMakeFiles/lox.dir/src/value.c.o CMakeFiles/lox.dir/src/object.c.o CMakeFiles/lox.dir/src/scanner.c.o CMakeFiles/lox.dir/src/compiler.c.o CMakeFiles/lox.dir/src/chunk.c.o CMakeFiles/lox.dir/src/debug.c.o CMakeFiles/lox.dir/src/vm.c.o CMakeFiles/lox.dir/src/table.c.o CMakeFiles/lox.dir/src/main.c.o  -o lox 

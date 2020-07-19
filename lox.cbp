@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="lox"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/marten/projects/clox"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/marten/projects/clox"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/marten/projects/clox"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lox">
+				<Option output="/home/marten/projects/clox/lox" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/marten/projects/clox"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/marten/projects/clox/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 lox"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lox/fast">
+				<Option output="/home/marten/projects/clox/lox" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/marten/projects/clox"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/marten/projects/clox/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 lox/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/marten/projects/clox/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/marten/projects/clox/include/chunk.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/common.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/compiler.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/debug.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/memory.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/object.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/scanner.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/table.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/value.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/include/vm.h">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/chunk.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/compiler.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/debug.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/main.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/memory.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/object.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/scanner.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/table.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/value.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/src/vm.c">
+			<Option target="lox"/>
+		</Unit>
+		<Unit filename="/home/marten/projects/clox/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

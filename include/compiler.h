@@ -4,6 +4,7 @@
 #include "common.h"
 #include "scanner.h"    // structs: Token & TokenType, functions:  scanToken()
 #include "chunk.h"      // structs: Chunk, functions: writeChunk()
+#include "object.h"
 
 #ifdef DEBUG_PRINT_CODE
 #include "debug.h"
@@ -17,9 +18,9 @@ bool compile(const char *source, Chunk *chunk);
 // Support for number literals \
 static void number();
 // Support for grouping expressions with parentheses (expression)
-static void grouping();
+static void grouping(bool);
 // Support for unary operands (eg. !bool, -number)
-static void unary();
+static void unary(bool);
 
 //
 static uint8_t makeConstant(Value value);
@@ -40,6 +41,9 @@ static void consume(TokenType type, const char *message);
 
 /** Middle end? **/
 static void expression();
+
+static void statement();
+static void declaration();
 
 /** Backend **/
 //

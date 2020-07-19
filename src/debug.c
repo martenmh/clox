@@ -35,19 +35,35 @@ int disassembleInstruction(Chunk *chunk, int offset){
             return simpleInstruction(OP_FALSE, offset);
         case OP_NEGATE:
             return simpleInstruction(OP_NEGATE, offset);
+        case OP_PRINT:
+            return simpleInstruction(OP_PRINT, offset);
+        case OP_GREATER:
+            return simpleInstruction(OP_GREATER, offset);
+        case OP_EQUAL:
+            return simpleInstruction(OP_EQUAL, offset);
+        case OP_LESS:
+            return simpleInstruction(OP_LESS, offset);
         case OP_RETURN:
             return simpleInstruction(OP_RETURN, offset);
         case OP_NOT:
             return simpleInstruction(OP_NOT, offset);
+        case OP_POP:
+            return simpleInstruction(OP_POP, offset);
+        case OP_SET_GLOBAL:
+          return constantInstruction(OP_SET_GLOBAL, chunk, offset);
+        case OP_DEFINE_GLOBAL:
+            return constantInstruction(OP_DEFINE_GLOBAL, chunk, offset);
+        case OP_GET_GLOBAL:
+            return constantInstruction(OP_GET_GLOBAL, chunk, offset);
         default:
             printf("Unknown opcode %d\n", instruction);
             return offset + 1;
     }
 }
 
-static int constantInstruction(const char *name, Chunk *chunk, int offset){
+static int constantInstruction(OpCode opCode, Chunk *chunk, int offset){
     uint8_t constant = chunk->code[offset + 1];
-    printf("%-16s %4d '", name, constant);
+    printf("%-16s %4d '", GET_STR(opCode), constant);
     printValue(chunk->constants.values[constant]);
     printf("'\n");
     // One for the opcode and one for the operand

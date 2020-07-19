@@ -1,19 +1,20 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.12)
 project(lox C)
 
 set(CMAKE_C_STANDARD 11)
 
+include_directories(include)
 
 add_executable(lox
-        src/chunk.c
-        src/chunk.h
-        src/common.h
-        src/debug.c
-        src/debug.h
+        include/common.h
+        include/memory.h    src/memory.c
+        include/value.h     src/value.c
+        include/object.h    src/object.c
+        include/scanner.h   src/scanner.c
+        include/compiler.h  src/compiler.c
+        include/chunk.h     src/chunk.c
+        include/debug.h     src/debug.c
+        include/vm.h        src/vm.c
+        include/table.h     src/table.c
         src/main.c
-        src/memory.c
-        src/memory.h
-        src/value.c
-        src/value.h
-        src/vm.h
-        src/vm.c)
+        )

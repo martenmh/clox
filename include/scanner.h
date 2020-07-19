@@ -38,14 +38,14 @@ typedef struct {
 
 // Helper functions
 static Token makeToken(TokenType type); // Create an error from a type
-static Token errorToken(const char *message);   // Get an error token from a message
+static Token errorToken(const char *message);   // Get an error token from a message \
 static Token string();      // Create a string token    \
 static Token number();      // Create a number token
 static Token identifier();  // Create a identifier token
 static TokenType identifierType(); // Check if a token is a keyword or identifier
 static TokenType checkKeyword(int start, int length, const char *rest, TokenType type);
 static bool isAtEnd();  // Check if scanner is at the end of a file \
-static char advance();  // Advance the scanner by a character
+static char advance();  // Advance the scanner by a character \
 static bool match(char expected);   // Check if expected character matches next character
 static void skipWhitespace();   // Self-explanatory \
 static char peek(); // Get the next character without advancing the scanner
